@@ -1,0 +1,27 @@
+PACKAGE
+
+package user
+import "github.com/wcspromoteam/user"
+
+A simple package that allows persistent server-side storage of user settings and data.
+
+
+TYPES
+
+type User struct {
+    ID string // The user's ID, represented as an email in the current system.
+    // contains unexported fields
+}
+
+func Get(c http.ResponseWriter, r *http.Request) (u *User, err os.Error)
+
+func GetExisting(r *http.Request) (u *User, err os.Error)
+
+func (u *User) Get(key string) string
+
+func (u *User) Load() (err os.Error)
+
+func (u *User) Save() os.Error
+
+func (u *User) Set(key string, val string)
+
